@@ -1,0 +1,33 @@
+<ion-list>
+
+  <ion-list>
+    <ion-item-sliding 
+      *ngFor="let item of (getLista | lista: filtrar ) ">
+
+      <ion-item     
+        detail 
+        (click)="mover(item.id)">
+        <ion-label>{{ item.titulo }} </ion-label>
+        <ion-note slot="end" color="tertiary">{{ item.items.length }}</ion-note>
+      </ion-item>
+      
+      <ion-item-options side="start">
+        <ion-item-option
+          (click)="editar(item)"
+          color="tertiary">
+          <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+  
+      <ion-item-options side="end">
+        <ion-item-option 
+          (click)="eliminar(item)"
+          color="danger">
+          <ion-icon slot="icon-only" name="trash-bin-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  
+</ion-list>
